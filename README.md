@@ -1,5 +1,9 @@
 # itemscraper
-Required:
+
+To run a crawler, type in command line: scrapy crawl itemspider -o itemspider.json
+After execution the crawled data you can find in itemspider.json.
+
+The following problem was solved:
 - Use python and applicable libraries (beautifulsoup, grequests, scrapy) to scrape the uk
 website of the company and gather structured data about lawn-care products
 - Identify product categories, products, product descriptions on child pages of this site
