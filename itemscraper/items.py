@@ -6,7 +6,15 @@
 import scrapy
 
 
-class ItemscraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class CategoryPathsItem(scrapy.Item):
+    category_paths = scrapy.Field()
+
+
+class ProductPathsItem(scrapy.Item):
+    product_paths = scrapy.Field()
+
+
+class ProductItems(scrapy.Item):
+    category = scrapy.Field()
+    title = scrapy.Field()
+    description = scrapy.Field()
