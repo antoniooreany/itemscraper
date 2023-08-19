@@ -1,8 +1,11 @@
+import json
 import logging
 
 import scrapy
 
-from ..items import ProductItems, ProductPathsItem
+from ..items import ProductItems, ProductPathsItem, CategoryPathsItem
+
+DOMAIN = "https://www.gardena.com"
 
 
 class ItemspiderSpider(scrapy.Spider):
@@ -11,11 +14,13 @@ class ItemspiderSpider(scrapy.Spider):
     start_urls = ["https://www.gardena.com/uk/products/lawn-care/"]
 
     def parse(self, response):
+        item = CategoryPathsItem()
         category_paths = response.xpath(
             "//div[@class='col-xs-12']/a[@class='btn btn-primary btn-icon more-btn']").xpath('@href').extract()
         for category_path in category_paths:
-            category_url = "https://www.gardena.com" + category_path
-            # self.log(category_url, logging.WARN)
+            category_url = DOMAIN + category_path
+            self.log(category_url, logging.WARN)
+            item['category_paths'] = category_paths
             yield response.follow(category_url, callback=self.parse_category_page)
 
     def parse_category_page(self, response):
@@ -48,4 +53,17 @@ class ItemspiderSpider(scrapy.Spider):
         description = response.css("div.description-text::text")[0].extract()
         items['description'] = description.strip()
 
+        # Define a Python object
         yield items
+
+
+
+
+
+
+# Convert the Python object to JSON
+# person_json = json.dumps(items)
+
+# Write the JSON string to a file
+# with open('person.json', 'w') as f:
+#     f.write(person_json)
