@@ -1,7 +1,7 @@
 # itemscraper
 
-To run a crawler, type in command line: 
-scrapy crawl itemspider -o items.json
+To run a crawler, type in command line: <br>
+'scrapy crawl itemspider -o items.json' <br><br>
 After execution the crawled data you can find in items.json.
 
 The following problem was solved:
