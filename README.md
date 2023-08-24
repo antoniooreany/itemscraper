@@ -1,6 +1,6 @@
 # itemscraper
 
-To run a crawler, type in command line: scrapy crawl itemspider -o itemspider.json
+To run a crawler, type in command line: scrapy crawl itemspider -o items.json
 After execution the crawled data you can find in itemspider.json.
 
 The following problem was solved:
