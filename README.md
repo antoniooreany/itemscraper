@@ -1,7 +1,7 @@
 # itemscraper
 
 To run a crawler, type in command line: scrapy crawl itemspider -o items.json
-After execution the crawled data you can find in itemspider.json.
+After execution the crawled data you can find in items.json.
 
 The following problem was solved:
 - Use python and applicable libraries (beautifulsoup, grequests, scrapy) to scrape the uk
